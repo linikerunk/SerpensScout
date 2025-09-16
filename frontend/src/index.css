@@ -1,0 +1,37 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-scout-800 leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-scout-700 hover:bg-scout-800 text-white px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-scout-100 hover:bg-scout-200 text-scout-700 px-4 py-2 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-scout-100 p-6 hover:shadow-md transition-all duration-200;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-scout-600 to-scout-800 bg-clip-text text-transparent;
+  }
+  
+  .dot-accent {
+    @apply text-scout-500;
+  }
+}
