@@ -5,6 +5,8 @@ import Aside from './components/layout/Aside'
 import About from './pages/About'
 import TechnicalScout from './pages/TechnicalScout'
 import Predictions from './pages/Predictions'
+import UserProfile from './pages/UserProfile'
+import Teams from './pages/Teams'
 
 /**
  * 🦇 App Component - O Coração da Aplicação
@@ -26,6 +28,7 @@ function App() {
                 <Route path="/" element={<Navigate to="/palpites" replace />} />
                 <Route path="/scout" element={<TechnicalScout />} />
                 <Route path="/palpites" element={<Predictions />} />
+                <Route path="/times" element={<Teams />} />
                 <Route path="/about" element={<About />} />
               </Routes>
             </main>

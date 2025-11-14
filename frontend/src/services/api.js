@@ -260,6 +260,32 @@ class StatsService extends ApiService {
   }
 }
 
+/**
+ * Serviço específico para Times
+ */
+class TeamsService extends ApiService {
+  /**
+   * Buscar todos os times
+   */
+  async getTeams() {
+    return this.get('/teams/');
+  }
+
+  /**
+   * Buscar times da Série A
+   */
+  async getSerieATeams() {
+    return this.get('/teams/serie-a/');
+  }
+
+  /**
+   * Buscar time por ID
+   */
+  async getTeam(id) {
+    return this.get(`/teams/${id}/`);
+  }
+}
+
 // Instâncias dos serviços
 export const postsService = new PostsService();
 export const categoriesService = new CategoriesService();
@@ -268,6 +294,7 @@ export const commentsService = new CommentsService();
 export const matchesService = new MatchesService();
 export const predictionsService = new PredictionsService();
 export const statsService = new StatsService();
+export const teamsService = new TeamsService();
 
 // Exportar também a classe base para casos especiais
 export default ApiService;

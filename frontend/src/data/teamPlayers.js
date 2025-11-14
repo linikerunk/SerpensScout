@@ -1,0 +1,257 @@
+/**
+ * Database of players for each team - Updated 2025/11/14
+ * Formation: 4-3-3
+ * Elencos atualizados com contratações e saídas da temporada 2025
+ */
+
+export const teamPlayers = {
+  'Flamengo': {
+    'GK': { name: 'Rossi', number: 1 },
+    'RB': { name: 'Varela', number: 2 },
+    'CB1': { name: 'Léo Pereira', number: 4 },
+    'CB2': { name: 'Fabricio Bruno', number: 15 },
+    'LB': { name: 'Ayrton Lucas', number: 6 },
+    'CDM': { name: 'Erick Pulgar', number: 5 },
+    'CM1': { name: 'Gerson', number: 8 },
+    'CM2': { name: 'De La Cruz', number: 18 },
+    'RW': { name: 'Michael', number: 19 },
+    'ST': { name: 'Carlinhos', number: 22 },
+    'LW': { name: 'Bruno Henrique', number: 27 }
+  },
+  'Palmeiras': {
+    'GK': { name: 'Weverton', number: 21 },
+    'RB': { name: 'Mayke', number: 12 },
+    'CB1': { name: 'Gustavo Gómez', number: 15 },
+    'CB2': { name: 'Murilo', number: 26 },
+    'LB': { name: 'Vanderlan', number: 6 },
+    'CDM': { name: 'Zé Rafael', number: 8 },
+    'CM1': { name: 'Raphael Veiga', number: 23 },
+    'CM2': { name: 'Aníbal Moreno', number: 5 },
+    'RW': { name: 'Estêvão', number: 41 },
+    'ST': { name: 'Flaco López', number: 42 },
+    'LW': { name: 'Rony', number: 10 }
+  },
+  'Fluminense': {
+    'GK': { name: 'Fábio', number: 1 },
+    'RB': { name: 'Samuel Xavier', number: 2 },
+    'CB1': { name: 'Thiago Silva', number: 3 },
+    'CB2': { name: 'Thiago Santos', number: 33 },
+    'LB': { name: 'Diogo Barbosa', number: 12 },
+    'CDM': { name: 'Martinelli', number: 8 },
+    'CM1': { name: 'Paulo Henrique Ganso', number: 10 },
+    'CM2': { name: 'Jhon Arias', number: 21 },
+    'RW': { name: 'Marquinhos', number: 77 },
+    'ST': { name: 'Cano', number: 14 },
+    'LW': { name: 'Keno', number: 11 }
+  },
+  'São Paulo': {
+    'GK': { name: 'Rafael', number: 23 },
+    'RB': { name: 'Igor Vinícius', number: 2 },
+    'CB1': { name: 'Arboleda', number: 5 },
+    'CB2': { name: 'Alan Franco', number: 28 },
+    'LB': { name: 'Welington', number: 6 },
+    'CDM': { name: 'Luiz Gustavo', number: 16 },
+    'CM1': { name: 'Alisson', number: 25 },
+    'CM2': { name: 'Lucas', number: 7 },
+    'RW': { name: 'Wellington Rato', number: 27 },
+    'ST': { name: 'Calleri', number: 9 },
+    'LW': { name: 'Luciano', number: 10 }
+  },
+  'Corinthians': {
+    'GK': { name: 'Hugo Souza', number: 1 },
+    'RB': { name: 'Fagner', number: 23 },
+    'CB1': { name: 'Cacá', number: 25 },
+    'CB2': { name: 'André Ramalho', number: 5 },
+    'LB': { name: 'Hugo', number: 2 },
+    'CDM': { name: 'Raniele', number: 14 },
+    'CM1': { name: 'Breno Bidon', number: 28 },
+    'CM2': { name: 'Rodrigo Garro', number: 10 },
+    'RW': { name: 'Wesley', number: 36 },
+    'ST': { name: 'Yuri Alberto', number: 9 },
+    'LW': { name: 'Memphis Depay', number: 94 }
+  },
+  'Internacional': {
+    'GK': { name: 'Rochet', number: 1 },
+    'RB': { name: 'Bustos', number: 16 },
+    'CB1': { name: 'Vitão', number: 44 },
+    'CB2': { name: 'Clayton Sampaio', number: 15 },
+    'LB': { name: 'Bernabéi', number: 26 },
+    'CDM': { name: 'Fernando', number: 5 },
+    'CM1': { name: 'Thiago Maia', number: 29 },
+    'CM2': { name: 'Alan Patrick', number: 10 },
+    'RW': { name: 'Wesley', number: 21 },
+    'ST': { name: 'Rafael Borré', number: 19 },
+    'LW': { name: 'Wanderson', number: 11 }
+  },
+  'Atlético-MG': {
+    'GK': { name: 'Everson', number: 22 },
+    'RB': { name: 'Saravia', number: 26 },
+    'CB1': { name: 'Bruno Fuchs', number: 16 },
+    'CB2': { name: 'Junior Alonso', number: 3 },
+    'LB': { name: 'Guilherme Arana', number: 13 },
+    'CDM': { name: 'Otávio', number: 5 },
+    'CM1': { name: 'Battaglia', number: 21 },
+    'CM2': { name: 'Gustavo Scarpa', number: 6 },
+    'RW': { name: 'Bernard', number: 20 },
+    'ST': { name: 'Hulk', number: 7 },
+    'LW': { name: 'Paulinho', number: 10 }
+  },
+  'Botafogo': {
+    'GK': { name: 'John', number: 12 },
+    'RB': { name: 'Vitinho', number: 22 },
+    'CB1': { name: 'Bastos', number: 15 },
+    'CB2': { name: 'Barboza', number: 20 },
+    'LB': { name: 'Cuiabano', number: 66 },
+    'CDM': { name: 'Gregore', number: 26 },
+    'CM1': { name: 'Marlon Freitas', number: 17 },
+    'CM2': { name: 'Savarino', number: 10 },
+    'RW': { name: 'Luiz Henrique', number: 7 },
+    'ST': { name: 'Igor Jesus', number: 99 },
+    'LW': { name: 'Júnior Santos', number: 11 }
+  },
+  'Grêmio': {
+    'GK': { name: 'Marchesín', number: 1 },
+    'RB': { name: 'João Pedro', number: 16 },
+    'CB1': { name: 'Rodrigo Ely', number: 5 },
+    'CB2': { name: 'Jemerson', number: 28 },
+    'LB': { name: 'Reinaldo', number: 6 },
+    'CDM': { name: 'Villasanti', number: 20 },
+    'CM1': { name: 'Pepê', number: 8 },
+    'CM2': { name: 'Cristaldo', number: 10 },
+    'RW': { name: 'Pavon', number: 22 },
+    'ST': { name: 'Braithwaite', number: 9 },
+    'LW': { name: 'Soteldo', number: 7 }
+  },
+  'Vasco': {
+    'GK': { name: 'Léo Jardim', number: 1 },
+    'RB': { name: 'Paulo Henrique', number: 2 },
+    'CB1': { name: 'João Victor', number: 38 },
+    'CB2': { name: 'Léo', number: 3 },
+    'LB': { name: 'Lucas Piton', number: 6 },
+    'CDM': { name: 'Hugo Moura', number: 25 },
+    'CM1': { name: 'Mateus Carvalho', number: 26 },
+    'CM2': { name: 'Philippe Coutinho', number: 11 },
+    'RW': { name: 'Adson', number: 28 },
+    'ST': { name: 'Vegetti', number: 99 },
+    'LW': { name: 'David', number: 7 }
+  },
+  'Cruzeiro': {
+    'GK': { name: 'Cássio', number: 1 },
+    'RB': { name: 'William', number: 2 },
+    'CB1': { name: 'João Marcelo', number: 4 },
+    'CB2': { name: 'Zé Ivaldo', number: 5 },
+    'LB': { name: 'Marlon', number: 6 },
+    'CDM': { name: 'Lucas Romero', number: 29 },
+    'CM1': { name: 'Matheus Henrique', number: 8 },
+    'CM2': { name: 'Matheus Pereira', number: 10 },
+    'RW': { name: 'Barreal', number: 20 },
+    'ST': { name: 'Kaio Jorge', number: 19 },
+    'LW': { name: 'Gabriel Veron', number: 11 }
+  },
+  'Bahia': {
+    'GK': { name: 'Marcos Felipe', number: 22 },
+    'RB': { name: 'Gilberto', number: 2 },
+    'CB1': { name: 'Gabriel Xavier', number: 3 },
+    'CB2': { name: 'Kanu', number: 4 },
+    'LB': { name: 'Luciano Juba', number: 28 },
+    'CDM': { name: 'Caio Alexandre', number: 19 },
+    'CM1': { name: 'Jean Lucas', number: 6 },
+    'CM2': { name: 'Everton Ribeiro', number: 10 },
+    'RW': { name: 'Cauly', number: 8 },
+    'ST': { name: 'Everaldo', number: 9 },
+    'LW': { name: 'Thaciano', number: 16 }
+  },
+  'Fortaleza': {
+    'GK': { name: 'João Ricardo', number: 1 },
+    'RB': { name: 'Tinga', number: 2 },
+    'CB1': { name: 'Titi', number: 3 },
+    'CB2': { name: 'Brítez', number: 21 },
+    'LB': { name: 'Bruno Pacheco', number: 6 },
+    'CDM': { name: 'Lucas Sasha', number: 88 },
+    'CM1': { name: 'Hércules', number: 35 },
+    'CM2': { name: 'Tomás Pochettino', number: 10 },
+    'RW': { name: 'Marinho', number: 11 },
+    'ST': { name: 'Lucero', number: 9 },
+    'LW': { name: 'Moisés', number: 21 }
+  },
+  'Bragantino': {
+    'GK': { name: 'Cleiton', number: 1 },
+    'RB': { name: 'Hurtado', number: 2 },
+    'CB1': { name: 'Pedro Henrique', number: 4 },
+    'CB2': { name: 'Eduardo Santos', number: 3 },
+    'LB': { name: 'Luan Cândido', number: 36 },
+    'CDM': { name: 'Eric Ramires', number: 5 },
+    'CM1': { name: 'Jadsom', number: 8 },
+    'CM2': { name: 'Lucas Evangelista', number: 10 },
+    'RW': { name: 'Vitinho', number: 28 },
+    'ST': { name: 'Eduardo Sasha', number: 9 },
+    'LW': { name: 'Helinho', number: 11 }
+  },
+  'Atlético-GO': {
+    'GK': { name: 'Ronaldo', number: 1 },
+    'RB': { name: 'Maguinho', number: 2 },
+    'CB1': { name: 'Adriano Martins', number: 4 },
+    'CB2': { name: 'Luiz Felipe', number: 3 },
+    'LB': { name: 'Guilherme Romão', number: 6 },
+    'CDM': { name: 'Baralhas', number: 5 },
+    'CM1': { name: 'Rhaldney', number: 55 },
+    'CM2': { name: 'Alejo Cruz', number: 21 },
+    'RW': { name: 'Shaylon', number: 10 },
+    'ST': { name: 'Luiz Fernando', number: 7 },
+    'LW': { name: 'Emiliano Rodríguez', number: 20 }
+  },
+  'Vitória': {
+    'GK': { name: 'Lucas Arcanjo', number: 22 },
+    'RB': { name: 'Willean Lepo', number: 2 },
+    'CB1': { name: 'Neris', number: 3 },
+    'CB2': { name: 'Wagner Leonardo', number: 4 },
+    'LB': { name: 'Lucas Esteves', number: 16 },
+    'CDM': { name: 'Luan Silva', number: 8 },
+    'CM1': { name: 'Matheusinho', number: 19 },
+    'CM2': { name: 'Willian Oliveira', number: 5 },
+    'RW': { name: 'Osvaldo', number: 11 },
+    'ST': { name: 'Alerrandro', number: 9 },
+    'LW': { name: 'Janderson', number: 33 }
+  },
+  'Santos': {
+    'GK': { name: 'Gabriel Brazão', number: 1 },
+    'RB': { name: 'Hayner', number: 23 },
+    'CB1': { name: 'Gil', number: 4 },
+    'CB2': { name: 'Jair', number: 44 },
+    'LB': { name: 'Escobar', number: 21 },
+    'CDM': { name: 'Diego Pituca', number: 21 },
+    'CM1': { name: 'Giuliano', number: 20 },
+    'CM2': { name: 'Serginho', number: 10 },
+    'RW': { name: 'Otero', number: 11 },
+    'ST': { name: 'Wendel Silva', number: 19 },
+    'LW': { name: 'Guilherme', number: 11 }
+  },
+  'Juventude': {
+    'GK': { name: 'Gabriel Vasconcelos', number: 1 },
+    'RB': { name: 'João Lucas', number: 2 },
+    'CB1': { name: 'Danilo Boza', number: 4 },
+    'CB2': { name: 'Zé Marcos', number: 5 },
+    'LB': { name: 'Alan Ruschel', number: 28 },
+    'CDM': { name: 'Jadson', number: 16 },
+    'CM1': { name: 'Nenê', number: 10 },
+    'CM2': { name: 'Mandaca', number: 7 },
+    'RW': { name: 'Erick Farias', number: 20 },
+    'ST': { name: 'Lucas Barbosa', number: 21 },
+    'LW': { name: 'Edson Carioca', number: 11 }
+  }
+}
+
+// Default fallback for teams without data
+export const defaultPlayers = {
+  'GK': { name: 'Goleiro', number: 1 },
+  'RB': { name: 'Lateral Direito', number: 2 },
+  'CB1': { name: 'Zagueiro 1', number: 3 },
+  'CB2': { name: 'Zagueiro 2', number: 4 },
+  'LB': { name: 'Lateral Esquerdo', number: 6 },
+  'CDM': { name: 'Volante', number: 5 },
+  'CM1': { name: 'Meia 1', number: 8 },
+  'CM2': { name: 'Meia 2', number: 10 },
+  'RW': { name: 'Ponta Direita', number: 7 },
+  'ST': { name: 'Atacante', number: 9 },
+  'LW': { name: 'Ponta Esquerda', number: 11 }
+}

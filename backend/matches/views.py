@@ -5,9 +5,20 @@ from rest_framework.permissions import AllowAny
 from django.db.models import Count, Q
 from datetime import datetime, timedelta
 
-from .models import Match, Prediction, UserStats
-from .serializers import MatchSerializer, PredictionSerializer, UserStatsSerializer
+from .models import Match, Prediction, UserStats, Team
+from .serializers import MatchSerializer, PredictionSerializer, UserStatsSerializer, TeamSerializer
 from .external_api import FootballAPI
+
+
+class TeamViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    ViewSet for Team model
+    Provides read-only access to teams
+    """
+    queryset = Team.objects.all()
+    serializer_class = TeamSerializer
+    permission_classes = [AllowAny]
+    lookup_field = 'slug'
 
 
 class MatchViewSet(viewsets.ModelViewSet):

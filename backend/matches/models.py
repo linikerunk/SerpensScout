@@ -1,4 +1,38 @@
 from django.db import models
+from django.utils.text import slugify
+
+
+class Team(models.Model):
+    """Model to store football teams"""
+
+    name = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    short_name = models.CharField(max_length=50, blank=True)
+
+    # Logo - pode ser URL ou caminho para arquivo local
+    logo_url = models.URLField(max_length=500, blank=True)
+
+    # Cores do time (hex colors)
+    primary_color = models.CharField(max_length=7, default='#000000')
+    secondary_color = models.CharField(max_length=7, default='#FFFFFF')
+
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = 'Team'
+        verbose_name_plural = 'Teams'
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
 
 class Match(models.Model):
     """Model to store football matches"""

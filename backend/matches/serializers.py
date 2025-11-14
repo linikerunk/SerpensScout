@@ -1,5 +1,24 @@
 from rest_framework import serializers
-from .models import Match, Prediction, UserStats
+from .models import Match, Prediction, UserStats, Team
+
+
+class TeamSerializer(serializers.ModelSerializer):
+    """Serializer for Team model"""
+
+    class Meta:
+        model = Team
+        fields = [
+            'id',
+            'name',
+            'slug',
+            'short_name',
+            'logo_url',
+            'primary_color',
+            'secondary_color',
+            'created_at',
+            'updated_at',
+        ]
+        read_only_fields = ['id', 'slug', 'created_at', 'updated_at']
 
 
 class MatchSerializer(serializers.ModelSerializer):

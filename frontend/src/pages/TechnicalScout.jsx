@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import FootballField from '../components/FootballField'
+import { teamPlayers, defaultPlayers } from '../data/teamPlayers'
 
 /**
  * Technical Scout Page - Professional Scouting Interface
@@ -10,6 +11,31 @@ const TechnicalScout = () => {
   const [scoutNotes, setScoutNotes] = useState('')
   const [selectedMetric, setSelectedMetric] = useState('overall')
   const [filterNationality, setFilterNationality] = useState('all')
+
+  // Times mock - Campeonato Brasileiro
+  const mockTeams = [
+    { id: 1, name: 'Flamengo', logo: '/teams/flamengo.png' },
+    { id: 2, name: 'Palmeiras', logo: '/teams/palmeiras.png' },
+    { id: 3, name: 'Fluminense', logo: '/teams/fluminense.png' },
+    { id: 4, name: 'São Paulo', logo: '/teams/sao_paulo.png' },
+    { id: 5, name: 'Corinthians', logo: '/teams/corinthians.png' },
+    { id: 6, name: 'Internacional', logo: '/teams/internacional.png' },
+    { id: 7, name: 'Atlético-MG', logo: '/teams/atletico_mineiro.png' },
+    { id: 8, name: 'Botafogo', logo: '/teams/botafogo.png' },
+    { id: 9, name: 'Grêmio', logo: '/teams/gremio.png' },
+    { id: 10, name: 'Vasco', logo: '/teams/vasco-da-gama.png' },
+    { id: 11, name: 'Cruzeiro', logo: '/teams/cruzeiro.png' },
+    { id: 12, name: 'Bahia', logo: '/teams/bahia.png' },
+    { id: 13, name: 'Fortaleza', logo: '/teams/fortaleza.png' },
+    { id: 14, name: 'Bragantino', logo: '/teams/rb-bragantino.png' },
+    { id: 16, name: 'Vitória', logo: '/teams/vitoria.png' },
+    { id: 17, name: 'Santos', logo: '/teams/santos.png' },
+    { id: 18, name: 'Juventude', logo: '/teams/juventude.png' }
+  ]
+
+  const [teams] = useState(mockTeams)
+  const [selectedTeam, setSelectedTeam] = useState(mockTeams[0])
+  const [loadingTeams] = useState(false)
 
   // Professional player database with detailed metrics
   const playerDatabase = {
@@ -296,6 +322,34 @@ const TechnicalScout = () => {
     return (selectedPlayers.reduce((sum, p) => sum + p[metric], 0) / selectedPlayers.length).toFixed(1)
   }
 
+  // Get team lineup with player details
+  const getTeamLineup = (teamName) => {
+    const players = teamPlayers[teamName] || defaultPlayers
+
+    const positions = [
+      { id: 'GK', position: 'GOL', role: 'Goleiro', age: 28, nationality: 'BRA' },
+      { id: 'RB', position: 'LD', role: 'Lateral Direito', age: 26, nationality: 'BRA' },
+      { id: 'CB1', position: 'ZAG', role: 'Zagueiro', age: 29, nationality: 'BRA' },
+      { id: 'CB2', position: 'ZAG', role: 'Zagueiro', age: 27, nationality: 'BRA' },
+      { id: 'LB', position: 'LE', role: 'Lateral Esquerdo', age: 25, nationality: 'BRA' },
+      { id: 'CDM', position: 'VOL', role: 'Volante', age: 24, nationality: 'BRA' },
+      { id: 'CM1', position: 'MC', role: 'Meio Campo', age: 26, nationality: 'BRA' },
+      { id: 'CM2', position: 'MC', role: 'Meio Campo', age: 23, nationality: 'BRA' },
+      { id: 'RW', position: 'PD', role: 'Ponta Direita', age: 22, nationality: 'BRA' },
+      { id: 'ST', position: 'ATA', role: 'Atacante', age: 30, nationality: 'BRA' },
+      { id: 'LW', position: 'PE', role: 'Ponta Esquerda', age: 24, nationality: 'BRA' }
+    ]
+
+    return positions.map(pos => ({
+      name: players[pos.id]?.name || pos.role,
+      number: players[pos.id]?.number || '-',
+      position: pos.position,
+      role: pos.role,
+      age: pos.age,
+      nationality: pos.nationality
+    }))
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-6">
       <div className="max-w-7xl mx-auto">
@@ -380,6 +434,72 @@ const TechnicalScout = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </motion.div>
+
+        {/* Seletor de Times */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="mb-8"
+        >
+          <div className="bg-slate-800/50 backdrop-blur rounded-2xl p-6 border border-slate-700/50">
+            <h3 className="text-white text-xl font-bold mb-4 flex items-center gap-2">
+              <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              Escolha o Time para Análise
+            </h3>
+
+            {loadingTeams ? (
+              <div className="flex items-center justify-center py-12">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+                {teams.map((team) => (
+                  <motion.button
+                    key={team.id}
+                    whileHover={{ scale: 1.08, y: -5 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setSelectedTeam(team)}
+                    className={`relative p-4 rounded-xl border-2 transition-all ${
+                      selectedTeam?.id === team.id
+                        ? 'bg-blue-600/20 border-blue-500 shadow-lg shadow-blue-500/30'
+                        : 'bg-slate-900/50 border-slate-700/50 hover:border-slate-600 hover:bg-slate-900/70'
+                    }`}
+                  >
+                    {selectedTeam?.id === team.id && (
+                      <motion.div
+                        layoutId="activeTeam"
+                        className="absolute inset-0 bg-blue-600/10 rounded-xl"
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
+                    <div className="relative flex flex-col items-center gap-3">
+                      <motion.img
+                        animate={selectedTeam?.id === team.id ? {
+                          rotate: [0, 10, -10, 0],
+                        } : {}}
+                        transition={{
+                          duration: 0.5,
+                        }}
+                        src={team.logo}
+                        alt={team.name}
+                        className="w-16 h-16 object-contain"
+                        onError={(e) => {
+                          e.target.src = 'https://via.placeholder.com/64?text=' + team.name.substring(0, 3)
+                        }}
+                      />
+                      <span className="text-white text-sm font-bold text-center line-clamp-2">
+                        {team.name}
+                      </span>
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
+            )}
           </div>
         </motion.div>
 
