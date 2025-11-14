@@ -182,11 +182,92 @@ class CommentsService extends ApiService {
   }
 }
 
+/**
+ * Serviço específico para Partidas de Futebol
+ */
+class MatchesService extends ApiService {
+  /**
+   * Buscar próximas partidas (próximos 7 dias)
+   */
+  async getUpcomingMatches() {
+    return this.get('/matches/upcoming/');
+  }
+
+  /**
+   * Buscar todas as partidas
+   */
+  async getMatches() {
+    return this.get('/matches/');
+  }
+
+  /**
+   * Sincronizar partidas da API externa
+   */
+  async syncMatches() {
+    return this.post('/matches/sync_from_api/');
+  }
+
+  /**
+   * Buscar partida por ID
+   */
+  async getMatch(id) {
+    return this.get(`/matches/${id}/`);
+  }
+}
+
+/**
+ * Serviço específico para Palpites
+ */
+class PredictionsService extends ApiService {
+  /**
+   * Criar palpite
+   */
+  async createPrediction(predictionData) {
+    return this.post('/predictions/', predictionData);
+  }
+
+  /**
+   * Buscar palpites do usuário
+   */
+  async getMyPredictions(email) {
+    return this.get('/predictions/my_predictions/', { email });
+  }
+
+  /**
+   * Buscar todos os palpites
+   */
+  async getPredictions() {
+    return this.get('/predictions/');
+  }
+}
+
+/**
+ * Serviço específico para Estatísticas e Ranking
+ */
+class StatsService extends ApiService {
+  /**
+   * Buscar ranking de usuários
+   */
+  async getRanking(limit = 10) {
+    return this.get('/stats/ranking/', { limit });
+  }
+
+  /**
+   * Buscar estatísticas de um usuário
+   */
+  async getUserStats(id) {
+    return this.get(`/stats/${id}/`);
+  }
+}
+
 // Instâncias dos serviços
 export const postsService = new PostsService();
 export const categoriesService = new CategoriesService();
 export const tagsService = new TagsService();
 export const commentsService = new CommentsService();
+export const matchesService = new MatchesService();
+export const predictionsService = new PredictionsService();
+export const statsService = new StatsService();
 
 // Exportar também a classe base para casos especiais
 export default ApiService;

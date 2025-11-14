@@ -1,97 +1,78 @@
-import React from 'react';
-import Button from '../ui/Button';
+import { Link, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 /**
- * 🦇 Aside Component - O Perfil do Liniker
- * 
- * Aqui é onde o Liniker se apresenta ao mundo.
- * Cada link é uma conexão, cada palavra carrega propósito.
+ * Aside Component - Navigation Sidebar
  */
 const Aside = () => {
+  const location = useLocation()
+
+  const menuItems = [
+    {
+      path: '/scout',
+      label: 'Scout Técnico',
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      )
+    },
+    {
+      path: '/palpites',
+      label: 'Palpites',
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      )
+    },
+    {
+      path: '/about',
+      label: 'Sobre',
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      )
+    }
+  ]
+
   return (
-    <aside className="w-80 bg-white shadow-lg border-r border-gray-200 p-6">
-      {/* Foto e Nome */}
-      <div className="text-center mb-8">
-        <div className="w-32 h-32 mx-auto mb-4 bg-gray-200 rounded-full flex items-center justify-center">
-          <span className="text-4xl text-gray-500">🦇</span>
-        </div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Liniker</h2>
-        <p className="text-gray-600 text-sm">
-          Analista de Futebol • Desenvolvedor • Apaixonado por Dados
-        </p>
-      </div>
+    <aside className="w-64 bg-gray-50 border-r border-gray-200 min-h-screen p-4">
+      <nav className="space-y-2">
+        {menuItems.map((item) => {
+          const isActive = location.pathname === item.path
 
-      {/* Bio */}
-      <div className="mb-8">
-        <h3 className="text-lg font-semibold text-gray-900 mb-3">Sobre Mim</h3>
-        <p className="text-gray-600 text-sm leading-relaxed">
-          Analista de futebol apaixonado por dados e estatísticas. 
-          Combino tecnologia e paixão pelo esporte para criar 
-          análises profundas e insights únicos sobre o jogo.
-        </p>
-      </div>
-
-      {/* Contatos */}
-      <div className="mb-8">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Me Encontre</h3>
-        <div className="space-y-3">
-          <a 
-            href="mailto:liniker@example.com" 
-            className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <span className="mr-3">📧</span>
-            liniker@example.com
-          </a>
-          
-          <a 
-            href="https://github.com/liniker" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <span className="mr-3">🐙</span>
-            GitHub
-          </a>
-          
-          <a 
-            href="https://linkedin.com/in/liniker" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <span className="mr-3">💼</span>
-            LinkedIn
-          </a>
-          
-          <a 
-            href="https://twitter.com/liniker" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <span className="mr-3">🐦</span>
-            Twitter
-          </a>
-        </div>
-      </div>
-
-
-      {/* Tags Populares */}
-      <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-3">Tags Populares</h3>
-        <div className="flex flex-wrap gap-2">
-          {['Futebol', 'Análise', 'Estatísticas', 'Python', 'Dados', 'Táticas'].map((tag) => (
-            <span 
-              key={tag}
-              className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full hover:bg-gray-200 transition-colors cursor-pointer"
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="block"
             >
-              {tag}
-            </span>
-          ))}
-        </div>
+              <motion.div
+                whileHover={{ x: 4 }}
+                whileTap={{ scale: 0.98 }}
+                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                  isActive
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {item.icon}
+                <span className="font-medium">{item.label}</span>
+              </motion.div>
+            </Link>
+          )
+        })}
+      </nav>
+
+      {/* Footer Info */}
+      <div className="mt-8 p-4 bg-gray-100 rounded-lg">
+        <p className="text-xs text-gray-600 mb-2">Serpens Scout</p>
+        <p className="text-xs text-gray-500">Sistema de análise técnica de futebol</p>
       </div>
     </aside>
-  );
-};
+  )
+}
 
-export default Aside;
+export default Aside

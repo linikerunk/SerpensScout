@@ -1,9 +1,0 @@
-"""
-🦇 URLs para Categorias de Análise de Futebol
-"""
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('categories/', views.CategoryListView.as_view(), name='category-list'),
-]
