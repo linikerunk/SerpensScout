@@ -47,7 +47,7 @@ const Aside = () => {
   ]
 
   return (
-    <aside className="w-64 bg-gray-50 border-r border-gray-200 min-h-screen p-4">
+    <aside className="hidden md:block w-64 bg-gray-50 border-r border-gray-200 min-h-screen p-4">
       <nav className="space-y-2">
         {menuItems.map((item) => {
           const isActive = location.pathname === item.path

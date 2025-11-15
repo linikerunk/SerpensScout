@@ -5,7 +5,6 @@ import Aside from './components/layout/Aside'
 import About from './pages/About'
 import TechnicalScout from './pages/TechnicalScout'
 import Predictions from './pages/Predictions'
-import UserProfile from './pages/UserProfile'
 import Teams from './pages/Teams'
 
 /**
