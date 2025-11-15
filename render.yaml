@@ -4,7 +4,7 @@ services:
     name: serpens-scout-api
     runtime: python
     region: oregon
-    plan: free
+    plan: starter
     branch: main
     buildCommand: |
       cd backend
@@ -35,7 +35,7 @@ services:
   - type: web
     name: serpens-scout-frontend
     runtime: static
-    plan: free
+    plan: starter
     branch: main
     buildCommand: |
       cd frontend
@@ -54,5 +54,5 @@ services:
 databases:
   - name: serpens-scout-db
     databaseName: serpensscout
-    plan: free
+    plan: starter
     region: oregon
